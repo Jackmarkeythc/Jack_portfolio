@@ -8,8 +8,6 @@
     <meta name="description" content="UI/UX Portfolio showcasing work, skills, and contact information." />
     <meta name="color-scheme" content="dark" />
     <meta name="theme-color" content="#0b0b10" />
-
-    <!-- Tailwind (CDN) -->
     <script>
       window.tailwind = {
         config: {
@@ -23,53 +21,44 @@
       };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
     <style>
       html, body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif; }
-      :root { --card-bg: 24,24,27; }            /* dark card surface */
+      :root { --card-bg: 24,24,27; }
       .soft-card { background: rgba(var(--card-bg), 1); border: 1px solid rgba(255,255,255,.08); }
-      .halo { box-shadow: 0 30px 90px rgba(91,130,255,.35); }
-      @media (prefers-reduced-motion: reduce) {
-        * { animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important; scroll-behavior:auto!important; }
-      }
+      .halo { box-shadow: 0 30px 90px rgba(91, 255, 173, 0.35); }
+      @media (prefers-reduced-motion: reduce) { *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important} }
     </style>
   </head>
 
   <body class="bg-neutral-900 text-zinc-100">
-    <!-- Navbar -->
+    <!-- NAV -->
     <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-neutral-900/60 border-b border-white/5">
       <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a href="#" class="font-extrabold tracking-tight">Portfolio</a>
-
         <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
           <li><a href="#work" class="hover:text-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 rounded px-1 py-1">Work</a></li>
           <li><a href="#about" class="hover:text-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 rounded px-1 py-1">About</a></li>
           <li><a href="#contact" class="hover:text-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 rounded px-1 py-1">Contact</a></li>
         </ul>
-
-        <!-- placeholder to balance layout (toggle removed) -->
         <div class="w-6 h-6"></div>
       </nav>
     </header>
 
     <main>
-      <!-- Hero -->
+      <!-- HERO -->
       <section class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 lg:pt-28 pb-16 lg:pb-24">
         <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight">
-              Hi, I'm<br />
-              <span class="text-brand">Haiming Wang</span>
+              Hi, I'm<br /><span class="text-brand">Haiming Wang</span>
             </h1>
             <p class="mt-6 text-lg leading-8 text-zinc-300 max-w-xl">
               Aspiring UI/UX Designer with a background in Interaction Design, Marketing, and Hospitality.
               I'm passionate about creating user-centric digital experiences that enhance engagement and accessibility.
             </p>
-
             <div class="mt-8 flex items-center gap-3">
               <a href="#work" class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 bg-brand text-white font-semibold shadow hover:bg-brand-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/60">
                 View My Work
@@ -80,71 +69,51 @@
                 Get in Touch
               </a>
             </div>
-
             <dl class="mt-10 grid grid-cols-3 gap-6 max-w-xl">
-              <div>
-                <dt class="text-2xl font-extrabold">2+</dt>
-                <dd class="text-sm text-zinc-400">Years Experience</dd>
-              </div>
-              <div>
-                <dt class="text-2xl font-extrabold">12+</dt>
-                <dd class="text-sm text-zinc-400">Projects Completed</dd>
-              </div>
+              <div><dt class="text-2xl font-extrabold">2+</dt><dd class="text-sm text-zinc-400">Years Experience</dd></div>
+              <div><dt class="text-2xl font-extrabold">12+</</dt><dd class="text-sm text-zinc-400">Projects Completed</dd></div>
             </dl>
           </div>
-
           <div class="relative">
             <div class="soft-card halo rounded-2xl p-3 md:p-4 max-w-md mx-auto">
-              <img src="assets/profile.jpg" alt="Haiming playing guitar" class="rounded-xl object-cover w-full h-[380px]" />
+              <img src="profile.jpg" alt="Haiming playing guitar" class="rounded-xl object-cover w-full h-[380px]" />
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Work -->
+      <!-- WORK -->
       <section id="work" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24 border-t border-white/5">
         <div class="max-w-2xl">
           <h2 class="text-3xl font-extrabold tracking-tight">Selected Work</h2>
           <p class="mt-3 text-zinc-300">A few projects that reflect my approach to user-centric design.</p>
         </div>
 
-        <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <article class="soft-card rounded-2xl p-5 hover:shadow-glow transition">
-            <img src="assets/project-1.jpg" alt="Project 1 cover" class="rounded-xl w-full h-40 object-cover" />
-            <h3 class="mt-4 text-lg font-bold">Accessibility Audit &amp; Redesign</h3>
-            <p class="mt-1 text-sm text-zinc-400">WCAG-driven improvements that raised task success by 22%.</p>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="px-2 py-1 rounded-lg border border-white/10">WCAG</span>
-              <span class="px-2 py-1 rounded-lg border border-white/10">Usability</span>
-              <span class="px-2 py-1 rounded-lg border border-white/10">Figma</span>
-            </div>
-          </article>
+        <!-- Grid rendered by script.js -->
+        <div id="workGrid" class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 
-          <article class="soft-card rounded-2xl p-5 hover:shadow-glow transition">
-            <img src="assets/project-2.jpg" alt="Project 2 cover" class="rounded-xl w-full h-40 object-cover" />
-            <h3 class="mt-4 text-lg font-bold">Mobile Booking Flow</h3>
-            <p class="mt-1 text-sm text-zinc-400">Iterative prototyping &amp; testing for a frictionless checkout.</p>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="px-2 py-1 rounded-lg border border-white/10">Prototype</span>
-              <span class="px-2 py-1 rounded-lg border border-white/10">User Testing</span>
-              <span class="px-2 py-1 rounded-lg border border-white/10">Analytics</span>
-            </div>
+        <!-- Card template -->
+        <template id="workCardTpl">
+          <article class="group soft-card rounded-2xl overflow-hidden p-0 border border-white/10 transition transform">
+            <a href="#" data-action="open" class="block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/60">
+              <div class="relative">
+                <img class="w-full h-44 object-cover" alt="" />
+                <!-- why: affordance to indicate activation -->
+                <div class="pointer-events-none absolute inset-0 grid place-items-end p-3 opacity-0 group-hover:opacity-100 transition">
+                  <span class="rounded-lg px-2 py-1 text-xs bg-white/10 text-white">View</span>
+                </div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-lg font-bold"></h3>
+                <p class="mt-1 text-sm text-zinc-400"></p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs"></div>
+              </div>
+            </a>
           </article>
-
-          <article class="soft-card rounded-2xl p-5 hover:shadow-glow transition">
-            <img src="assets/project-3.jpg" alt="Project 3 cover" class="rounded-xl w-full h-40 object-cover" />
-            <h3 class="mt-4 text-lg font-bold">Restaurant Menu UX</h3>
-            <p class="mt-1 text-sm text-zinc-400">Menu IA and visuals that increased average order value.</p>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="px-2 py-1 rounded-lg border border-white/10">IA</span>
-              <span class="px-2 py-1 rounded-lg border border-white/10">CRO</span>
-              <span class="px-2 py-1 rounded-lg border border-white/10">A/B Test</span>
-            </div>
-          </article>
-        </div>
+        </template>
       </section>
 
-      <!-- About -->
+      <!-- ABOUT -->
       <section id="about" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24 border-t border-white/5">
         <div class="text-center max-w-3xl mx-auto">
           <h2 class="text-3xl font-extrabold tracking-tight">About Me</h2>
@@ -160,21 +129,7 @@
             <div class="mt-4 space-y-5 text-zinc-300">
               <p>My design journey is rooted in a diverse background that combines Interaction Design, Marketing, and Hospitality. This unique blend gives me deep insights into user psychology, business strategy, and service excellence.</p>
               <p>Through my experience in cross-cultural teamwork and digital marketing strategies, I've learned to create designs that resonate with diverse audiences. I'm skilled in wireframing, prototyping, and user research, always focusing on enhancing engagement and accessibility.</p>
-              <p>As an aspiring UI/UX Designer, I'm constantly learning and refining my craft, seeking opportunities to create meaningful digital experiences that bridge cultural gaps and serve real user needs.
-
-Skills & Expertise
-Wireframing
-Prototyping
-User Research
-Interaction Design
-Digital Marketing
-Cross-Cultural Teamwork
-Accessibility Design
-Service Design
-Tools I Use
-Figma, Adobe XD, InVision, Miro, Notion, Canva, Google Analytics, WordPress
-
-</p>
+              <p>As an aspiring UI/UX Designer, I'm constantly learning and refining my craft, seeking opportunities to create meaningful digital experiences that bridge cultural gaps and serve real user needs.</p>
             </div>
           </div>
 
@@ -190,132 +145,71 @@ Figma, Adobe XD, InVision, Miro, Notion, Canva, Google Analytics, WordPress
               <span class="px-3 py-1 rounded-xl border border-white/10">Accessibility</span>
               <span class="px-3 py-1 rounded-xl border border-white/10">Service Design</span>
             </div>
-
             <h4 class="mt-8 font-bold">Tools I Use</h4>
-            <p class="mt-2 text-sm text-zinc-400">
-              Figma, Adobe XD, Adobe Illustrator, Photoshop, Adobe After Effects, Miro, Notion, Canva, Google Analytics, WordPress
-            </p>
+            <p class="mt-2 text-sm text-zinc-400">Figma, Adobe Illustrator, Adobe Photoshop, Adobe XD, Miro, Notion, Canva, Google Analytics</p>
           </div>
         </div>
 
-       div class="mt-14">
+        <!-- What Drives Me (4 cards) -->
+        <div class="mt-14">
           <h3 class="text-center text-xl font-extrabold">What Drives Me</h3>
           <div class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <!-- User-Centered -->
             <div class="soft-card rounded-2xl p-6 text-center">
               <div class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                <!-- users icon -->
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                </svg>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
               </div>
               <h4 class="font-semibold">User-Centered</h4>
-              <p class="mt-2 text-sm text-zinc-400">
-                Great design starts with real user needs and pain points.
-              </p>
+              <p class="mt-2 text-sm text-zinc-400">Great design starts with real user needs.</p>
             </div>
-
-            <!-- Innovation -->
             <div class="soft-card rounded-2xl p-6 text-center">
               <div class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                <!-- bulb icon -->
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                  <path d="M9 18h6" /><path d="M10 22h4" />
-                  <path d="M2 12a10 10 0 1 1 20 0c0 3.33-1.64 5.3-4 7H6c-2.36-1.7-4-3.67-4-7Z"/>
-                </svg>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M2 12a10 10 0 1 1 20 0c0 3.33-1.64 5.3-4 7H6c-2.36-1.7-4-3.67-4-7Z"/></svg>
               </div>
               <h4 class="font-semibold">Innovation</h4>
-              <p class="mt-2 text-sm text-zinc-400">
-                Exploring new patterns and technologies to create better experiences.
-              </p>
+              <p class="mt-2 text-sm text-zinc-400">Exploring patterns & technology to improve UX.</p>
             </div>
-
-            <!-- Goal-Oriented -->
             <div class="soft-card rounded-2xl p-6 text-center">
               <div class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                <!-- target icon -->
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                  <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="4" /><path d="M12 8v4l3 2"/>
-                </svg>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 8v4l3 2"/></svg>
               </div>
               <h4 class="font-semibold">Goal-Oriented</h4>
-              <p class="mt-2 text-sm text-zinc-400">
-                Decisions align with clear business and user objectives.
-              </p>
+              <p class="mt-2 text-sm text-zinc-400">Decisions align with measurable outcomes.</p>
             </div>
-
-            <!-- Craft & Detail -->
             <div class="soft-card rounded-2xl p-6 text-center">
               <div class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                <!-- palette icon -->
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                  <path d="M19.5 13A7.5 7.5 0 1 0 12 20h2a2.5 2.5 0 0 0 2.5-2.5v-.5a4 4 0 0 0 3-4Z"/>
-                  <circle cx="6.5" cy="10.5" r="1" /><circle cx="9.5" cy="7.5" r="1" />
-                  <circle cx="13.5" cy="7.5" r="1" /><circle cx="16.5" cy="10.5" r="1" />
-                </svg>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19.5 13A7.5 7.5 0 1 0 12 20h2a2.5 2.5 0 0 0 2.5-2.5v-.5a4 4 0 0 0 3-4Z"/><circle cx="6.5" cy="10.5" r="1"/><circle cx="9.5" cy="7.5" r="1"/><circle cx="13.5" cy="7.5" r="1"/><circle cx="16.5" cy="10.5" r="1"/></svg>
               </div>
               <h4 class="font-semibold">Craft &amp; Detail</h4>
-              <p class="mt-2 text-sm text-zinc-400">
-                Obsessing over small details that make a big UX difference.
-              </p>
+              <p class="mt-2 text-sm text-zinc-400">Small details make big differences.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Contact -->
+      <!-- CONTACT -->
       <section id="contact" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24 border-t border-white/5">
-        <div class="text-center">
-          <h2 class="text-3xl font-extrabold tracking-tight">Let's Work Together</h2>
-        </div>
-
+        <div class="text-center"><h2 class="text-3xl font-extrabold tracking-tight">Let's Work Together</h2></div>
         <div class="mt-10 grid lg:grid-cols-2 gap-8">
           <div class="space-y-4">
             <h3 class="text-2xl font-extrabold">Get in Touch</h3>
             <p class="text-sm text-zinc-300 flex items-center gap-2">
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M22 6 12 13 2 6"/></svg>
-              <a class="underline-offset-4 hover:underline" href="mailto:haiming@example.com">jw_worki@outlook.com</a>
+              <a class="underline-offset-4 hover:underline" href="mailto:jw_worki@outlook.com">jw_worki@outlook.com</a>
             </p>
-
             <div class="soft-card rounded-2xl p-5">
               <h4 class="font-semibold">Currently Available</h4>
-              <p class="mt-1 text-sm text-zinc-400">
-                I'm actively seeking opportunities to grow as a UI/UX Designer. Let's discuss how my background can add value to your next project.
-              </p>
-              <p class="mt-3 text-sm flex items-center gap-2">
-                <span class="inline-flex h-2.5 w-2.5 rounded-full bg-green-500"></span>
-                Available for new projects
-              </p>
+              <p class="mt-1 text-sm text-zinc-400">I'm actively seeking opportunities to grow as a UI/UX Designer. Let's discuss how my unique background can add value to your next project.</p>
+              <p class="mt-3 text-sm flex items-center gap-2"><span class="inline-flex h-2.5 w-2.5 rounded-full bg-green-500"></span>Available for new projects</p>
             </div>
           </div>
 
           <form id="contactForm" class="soft-card rounded-2xl p-5">
             <div class="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label for="name" class="block text-sm font-medium">Name</label>
-                <input id="name" name="name" type="text" autocomplete="name" required
-                  class="mt-1 w-full rounded-xl border border-white/10 bg-transparent px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-brand/60" />
-              </div>
-              <div>
-                <label for="email" class="block text-sm font-medium">Email</label>
-                <input id="email" name="email" type="email" autocomplete="email" required
-                  class="mt-1 w-full rounded-xl border border-white/10 bg-transparent px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-brand/60" />
-              </div>
+              <div><label for="name" class="block text-sm font-medium">Name</label><input id="name" name="name" type="text" autocomplete="name" required class="mt-1 w-full rounded-xl border border-white/10 bg-transparent px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-brand/60" /></div>
+              <div><label for="email" class="block text-sm font-medium">Email</label><input id="email" name="email" type="email" autocomplete="email" required class="mt-1 w-full rounded-xl border border-white/10 bg-transparent px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-brand/60" /></div>
             </div>
-
-            <div class="mt-4">
-              <label for="subject" class="block text-sm font-medium">Subject</label>
-              <input id="subject" name="subject" type="text" required
-                class="mt-1 w-full rounded-xl border border-white/10 bg-transparent px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-brand/60" />
-            </div>
-
-            <div class="mt-4">
-              <label for="message" class="block text-sm font-medium">Message</label>
-              <textarea id="message" name="message" rows="5" required
-                class="mt-1 w-full rounded-xl border border-white/10 bg-transparent px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-brand/60"></textarea>
-            </div>
-
+            <div class="mt-4"><label for="subject" class="block text-sm font-medium">Subject</label><input id="subject" name="subject" type="text" required class="mt-1 w-full rounded-xl border border-white/10 bg-transparent px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-brand/60" /></div>
+            <div class="mt-4"><label for="message" class="block text-sm font-medium">Message</label><textarea id="message" name="message" rows="5" required class="mt-1 w-full rounded-xl border border-white/10 bg-transparent px-3 py-2 outline-none focus-visible:ring-2 focus-visible:ring-brand/60"></textarea></div>
             <button type="submit" class="mt-5 inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-xl bg-brand px-4 py-2.5 font-semibold text-white shadow hover:bg-brand-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/60">
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg>
               Send Message
@@ -328,10 +222,40 @@ Figma, Adobe XD, InVision, Miro, Notion, Canva, Google Analytics, WordPress
 
     <footer class="border-t border-white/5">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 text-sm flex flex-col md:flex-row items-center justify-between gap-2">
-        <p class="text-zinc-400">© <span id="year"></span> Portfolio. Crafted with <span aria-hidden="true">♥</span> and lots of coffee.</p>
-        <p class="text-zinc-400">Made with HTML &amp; Tailwind</p>
+        <p class="text-zinc-400 text-center w-full">© <span id="year"></span> Haiming Wang Portfolio, Crafted with <span aria-hidden="true">♥</span> and Passion.</p>
       </div>
     </footer>
+
+    <!-- Work Modal -->
+    <div id="workModal" class="fixed inset-0 z-[60] hidden">
+      <div id="wmOverlay" class="absolute inset-0 bg-black/60"></div>
+      <div role="dialog" aria-modal="true" aria-labelledby="wmTitle" class="relative mx-auto my-8 max-w-3xl w-[92%] soft-card rounded-2xl overflow-hidden">
+        <img id="wmCover" class="w-full h-64 object-cover" alt="" />
+
+        <!-- Embedded Miro board (responsive). -->
+        <div id="wmEmbed" class="mt-4 px-4 pb-4 hidden">
+          <div class="aspect-video w-full overflow-hidden rounded-md bg-neutral-800">
+            <iframe id="wmIframe"
+                    width="100%" height="100%"
+                    src="https://miro.com/app/live-embed/uXjVNiRwTBM=/?embedMode=view_only_without_ui&moveToViewport=14694,-7303,25901,12908&embedId=881170539998"
+                    frameborder="0"
+                    scrolling="no"
+                    allow="fullscreen; clipboard-read; clipboard-write"
+                    title="Miro board embed"></iframe>
+          </div>
+        </div>
+
+        <div class="p-5">
+          <h3 id="wmTitle" class="text-xl font-bold"></h3>
+          <p id="wmDesc" class="mt-2 text-sm text-zinc-300"></p>
+          <div id="wmTags" class="mt-3 flex flex-wrap gap-2 text-xs"></div>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <a id="wmLink" target="_blank" rel="noopener" class="rounded-xl bg-brand px-4 py-2.5 font-semibold text-white hover:bg-brand-600">Open Project</a>
+            <button id="wmClose" class="rounded-xl border border-white/10 px-4 py-2.5">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="./script.js" defer></script>
   </body>
