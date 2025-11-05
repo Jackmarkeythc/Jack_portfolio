@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Meta Quest — Unity Game Development</title>
+    <meta name="description" content="Meta Quest Unity Game Development — project details and embed." />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html, body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif; }
+      :root {
+        --bg: #0b0b10;
+        --card-bg: 24,24,27;
+        --text: #e6edf3;
+        --muted: #9aa4b2;
+        --brand: #5B82FF;
+        --accent: #4EE1C9;
+        --line: rgba(255,255,255,0.06);
+        --radius: 14px;
+        --container: 1100px;
+        --measure: 64ch;
+      }
+      .soft-card { background: rgba(var(--card-bg), 1); border: 1px solid var(--line); border-radius: var(--radius); }
+      .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+      .hero { padding: 56px 0; text-align: center; }
+      .eyebrow { color: var(--muted); text-transform: uppercase; font-size: 12px; letter-spacing: .08em; margin-bottom: 10px; }
+      .title { font-size: clamp(28px, 6vw, 46px); font-weight: 800; margin: 0 0 12px; color: var(--text); }
+      .subtitle { color: var(--muted); max-width: 900px; margin: 0 auto 18px; }
+      .ctaRow { display:flex; gap:12px; justify-content:center; margin-top:18px; }
+      .btn { display:inline-block; padding:10px 16px; border-radius:999px; text-decoration:none; font-weight:600; border:1px solid var(--line); }
+      .btn.primary { background: var(--brand); color: white; border-color: var(--brand); }
+      .embedWrap { margin: 28px 0 60px; overflow:hidden; border-radius: 12px; border:1px solid var(--line); box-shadow: 0 12px 40px rgba(2,9,23,0.5); }
+      .embedWrap iframe { width:100%; height:74vh; border:0; display:block; background:white; }
+      footer { border-top:1px solid rgba(255,255,255,0.04); padding:18px 0; color:var(--muted); text-align:center; }
+
+      /* NEW: improved case-study styles */
+      .case {
+        margin: 24px 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .case .panel {
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, rgba(var(--card-bg),0.98), rgba(var(--card-bg),0.95));
+      }
+      .case .meta-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      @media (min-width:900px) {
+        .case { grid-template-columns: 380px 1fr; align-items: start; }
+        .case .meta-grid { grid-auto-rows: min-content; }
+      }
+      .case .kpi {
+        display:flex; gap:12px; flex-wrap:wrap; align-items:center;
+      }
+      .kpi .item {
+        background: rgba(255,255,255,0.02);
+        padding:10px;
+        border-radius:10px;
+        min-width:110px;
+        text-align:center;
+      }
+      .kpi .num { font-weight:800; font-size:1.1rem; color:var(--text); display:block; }
+      .kpi .lbl { font-size:12px; color:var(--muted); margin-top:6px; line-height:1.1; }
+
+      .callout {
+        border-left:4px solid var(--brand);
+        padding:14px 16px;
+        background: linear-gradient(90deg, rgba(91,130,255,0.03), transparent);
+        border-radius:8px;
+        color:var(--text);
+      }
+
+      .prose { color:var(--muted); max-width:var(--measure); line-height:1.65; font-size:15px; }
+      .prose h3 { color:var(--text); margin-top:0; margin-bottom:8px; }
+      .prose ul { margin:8px 0 8px 1.1rem; }
+      .prose strong { color:var(--text); }
+
+      .meta-item { font-size:14px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; }
+      .meta-item b { color:var(--text); }
+
+      .divider { height:1px; background:var(--line); margin:16px 0; border-radius:2px; }
+
+      /* subtle heading accent */
+      .section-title {
+        display:flex; align-items:center; gap:12px;
+        margin:0 0 8px;
+      }
+      .section-title .dot { width:10px; height:10px; border-radius:99px; background:var(--brand); box-shadow:0 6px 20px rgba(91,130,255,0.12); }
+    </style>
+  </head>
+
+  <body class="bg-neutral-900 text-zinc-100">
+    <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-neutral-900/60 border-b border-white/5">
+      <div class="container py-4 flex items-center justify-between">
+        <a href="index.html" class="font-semibold text-white">← Back</a>
+        <div class="text-sm text-zinc-400">Meta Quest · Unity Game Development</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <p class="eyebrow">Project · Prototype · 2024</p>
+          <h1 class="title">Meta Quest — Unity Game Development</h1>
+          <p class="subtitle">Prototype documentation and notes. Embedded Notion page below for quick viewing.</p>
+          <div class="ctaRow">
+            <a href="index.html" class="btn primary">← Back to Portfolio</a>
+            <a href="#embed" class="btn">Jump to Embed</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- REPLACED: stylized case-study content above embed -->
+      <section class="container">
+        <div class="case">
+          <!-- left meta column -->
+          <aside class="panel">
+            <div class="meta-grid">
+              <h4 class="section-title"><span class="dot" aria-hidden="true"></span><span style="font-weight:700;color:var(--text)">Case Study</span></h4>
+
+              <div class="meta-item"><span>Author</span><b>Haiming Wang Jack</b></div>
+              <div class="meta-item"><span>Role</span><b>Solo — UX/UI, Front‑end dev, Content</b></div>
+              <div class="meta-item"><span>Timeframe</span><b>Jan–May 2025</b></div>
+              <div class="meta-item"><span>Tools</span><b> Unity · Notion · CSS+ · JS</b></div>
+
+              <div class="divider" role="separator" aria-hidden="true"></div>
+
+              <div class="kpi" aria-hidden="true">
+                <div class="item"><span class="num">≤2</span><span class="lbl">Clicks to content</span></div>
+                <div class="item"><span class="num">30+</span><span class="lbl">Cards & cases</span></div>
+                <div class="item"><span class="num">AA</span><span class="lbl">Contrast target</span></div>
+              </div>
+
+              <div class="divider" role="separator" aria-hidden="true"></div>
+
+              <div class="callout" aria-live="polite">
+                <strong>Outcome:</strong>
+                <p style="margin:8px 0 0;color:var(--muted)">Designed Select Work grid with keyboard‑accessible, fully clickable cards and consistent case study structure — faster paths to content and improved discoverability.</p>
+              </div>
+            </div>
+          </aside>
+
+          <!-- right prose column: full case content from prompt -->
+          <div class="panel">
+            <div class="prose">
+              <h3>Physical Interface Project 3 — Meta Quest Unity Game Development</h3>
+
+              <p><strong>Role:</strong> Ideation lead, poster designer, gameplay flow scripting (scene/“frame” transitions) & background‑music design.</p>
+              <p><strong>Platform:</strong> Meta Quest (standalone) · <strong>Engine:</strong> Unity (2022 LTS) · <strong>Tooling:</strong> XR Interaction Toolkit / Oculus Integration, Unity AudioMixer, Timeline, Addressables.</p>
+              <p><strong>Team:</strong> Course project (cross‑functional: design × dev). <strong>Timeframe:</strong> Sprint prototype → iterative polish.</p>
+
+              <h4>1) Executive Summary</h4>
+              <p>We designed and built an interaction‑first VR prototype for Meta Quest that guides players through a sequence of “frames” (scenes) with seamless audiovisual continuity. I led concept direction, poster design, and the core scripting that connects frames, manages state, and crossfades background music so transitions feel intentional rather than jarring. The result: a playable Quest build that onboards first‑time users quickly, maintains comfort, and communicates the concept clearly via a production‑ready poster.</p>
+
+              <h4>2) Problem & Objectives</h4>
+              <p><strong>Challenge:</strong> Early VR prototypes often feel like disconnected scenes stitched together, with abrupt audio cuts and unclear navigation. We needed a cohesive through‑line that preserves immersion on a standalone headset.</p>
+              <p><strong>Objectives:</strong></p>
+              <ul>
+                <li><strong>Cohesion:</strong> Connect frames with a clear state machine so the user always knows “where they are”.</li>
+                <li><strong>Continuity:</strong> Background‑music system that crossfades themes between frames (no dead air, no snaps).</li>
+                <li><strong>Comfort:</strong> Teleport/short‑hop movement, reduced vection, predictable interactions.</li>
+                <li><strong>Clarity:</strong> One‑page poster for gallery/crit prompt communication.</li>
+              </ul>
+              <p><strong>Constraints:</strong> Standalone performance budget (72–90 Hz target), limited sprint time, minimal external assets to keep build size lean.</p>
+
+              <h4>3) Concept</h4>
+              <p>We framed the experience as a <strong>guided path of frames</strong>—each frame introduces one new interaction idea, then resolves into the next with a musical hand‑off and a visual cue (fade/portal). The flow is a sequence of vignettes where users progress with clear, lightweight affordances.</p>
+              <ol>
+                <li><strong>Frame A – Onboarding:</strong> safety bubble, controller prompts, single interaction.</li>
+                <li><strong>Frame B – Interaction Depth:</strong> 2–3 affordances that chain (grab → place → confirm).</li>
+                <li><strong>Frame C – Payoff:</strong> brief culmination moment (reveal/vista/effect) that transitions to credits/loop.</li>
+              </ol>
+
+              <h4>4) Process</h4>
+              <p><strong>Principles:</strong> comfort‑first locomotion, affordance mapping, and a feedback triad (haptic + spatial audio + visual highlight).</p>
+              <p><strong>Flow:</strong> [Start] → Onboard → Interact → Payoff → End/Loop. State is explicit (Onboarding, Interact, Payoff, End) and each transition triggers both scene content and audio theme changes.</p>
+
+              <h4>5) Technical Architecture & Implementation</h4>
+              <p><strong>High level:</strong> Single master scene with additive sub‑scenes for frames (fast loads, persistent managers). Lightweight state machine governs flow; Addressables handle scene assets; AudioMixer and snapshots manage music crossfades.</p>
+
+              <h5>5.1 Frame‑to‑Frame Scripting</h5>
+              <p>I authored a compact flow controller that emits events for UI, level content, and music to stay in lockstep (see code excerpts).</p>
+
+              <pre><code>// FrameId enum + GameFlowController (conceptual)
+public enum FrameId { Onboard, Interact, Payoff, End }
+
+public class GameFlowController : MonoBehaviour {
+  public FrameId Current { get; private set; } = FrameId.Onboard;
+  public event Action<FrameId, FrameId> OnFrameChanging;
+  public event Action<FrameId> OnFrameChanged;
+
+  public void Advance() {
+    var next = NextOf(Current);
+    if (next == Current) return;
+    OnFrameChanging?.Invoke(Current, next);
+    Current = next;
+    OnFrameChanged?.Invoke(Current);
+  }
+
+  FrameId NextOf(FrameId f) => f switch {
+    FrameId.Onboard => FrameId.Interact,
+    FrameId.Interact => FrameId.Payoff,
+    FrameId.Payoff => FrameId.End,
+    _ => FrameId.End
+  };
+}</code></pre>
+
+              <h5>5.2 Music Crossfades</h5>
+              <p>The music system uses two alternating AudioSources so theme handoffs are always crossfaded rather than hard‑cut. This preserves a single‑take feel even as content swaps in the background.</p>
+
+              <pre><code>// MusicDirector (conceptual)
+public class MusicDirector : MonoBehaviour {
+  [SerializeField] AudioSource a; // current
+  [SerializeField] AudioSource b; // next
+  [SerializeField] float fadeSeconds = 2.5f;
+
+  public void PlayTheme(AudioClip clip) {
+    var next = !a.isPlaying || a.volume < b.volume ? a : b;
+    var prev = next == a ? b : a;
+    next.clip = clip; next.volume = 0f; next.loop = true; next.Play();
+    StartCoroutine(Crossfade(prev, next));
+  }
+
+  IEnumerator Crossfade(AudioSource prev, AudioSource next) {
+    float t = 0f;
+    while (t < fadeSeconds) {
+      t += Time.deltaTime;
+      float k = t / fadeSeconds;
+      next.volume = k; prev.volume = 1f - k;
+      yield return null;
+    }
+    prev.Stop();
+  }
+}</code></pre>
+
+              <h4>6) Interaction & Comfort Defaults</h4>
+              <ul>
+                <li>Teleport by default; snap‑turn 30°.</li>
+                <li>Dynamic handedness based on system settings; mirrored prompts.</li>
+                <li>Soft vignette during fast moves; player height calibration.</li>
+              </ul>
+
+              <h4>7) Sound & Music Design</h4>
+              <p>Ambient pads + light percussive ticks; BPM ~100–120. Themes are loop‑safe and matched to bar lengths; transitions occur on bar boundaries with optional low‑pass sweeps for polish.</p>
+
+              <h4>8) Poster & Communication Artifact</h4>
+              <p>Poster summarizes concept, controls, and flow for gallery critiques: 3‑column grid, headline, frame strip diagram, QR to build/video, controller map, and comfort badges. Deliverables: print PDF + screen PNG.</p>
+
+              <h4>9) Testing & Iteration</h4>
+              <p>Classroom playtests validated frame clarity and audio continuity. The main early issue—users missing the Advance affordance—was fixed by adding a persistent continue cue and a brief haptic nudge. Profiling (Frame Debugger/Profiler) informed batching and culling optimizations.</p>
+
+              <h4>10) Outcomes</h4>
+              <ul>
+                <li>Playable Quest build with stable transitions and smooth music handovers.</li>
+                <li>Clear communication via poster and in‑app hints; faster onboarding.</li>
+                <li>Reusable architecture (flow controller + music director) for future projects.</li>
+              </ul>
+
+              <h4>11) Next Steps</h4>
+              <ul>
+                <li>Add hand‑tracking fallback for controller‑less demos.</li>
+                <li>Deeper diegetic audio that reacts to proximity (RTPC‑like behavior).</li>
+                <li>Expand frame roster with branching/optional challenges.</li>
+                <li>Instrument analytics for time‑to‑advance, comfort toggles, and churn points.</li>
+              </ul>
+
+              <h4>12) Deliverables & Links</h4>
+              <p>APK (Quest), Git repo (Unity), Poster (PDF/PNG), 60‑sec walkthrough video, one‑page summary for portfolio listing.</p>
+
+              <h4>One‑Page Portfolio Summary</h4>
+              <p><strong>Meta Quest VR prototype</strong> that strings a trio of interaction frames into a cohesive flow. I led ideation, poster design, and wrote the scene‑to‑scene state machine with a dual‑bus music system that crossfades themes at transitions. Built in Unity for standalone Quest with comfort‑first locomotion and additive scene loading. Outcome: a stable, clear, and communicative prototype ready for critique and exhibition.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End replaced case-study content -->
+
+      <section id="embed" class="container">
+        <div class="embedWrap soft-card">
+          <iframe
+            src="https://funky-ladybug-d69.notion.site/ebd/1b29554284ca809f8dc8c20a54ef267e"
+            title="Meta Quest — Notion Embed"
+            allow="clipboard-read; clipboard-write; fullscreen"
+            sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Haiming Wang — Crafted with ♥
+    </footer>
+
+    <script>
+      // set year and smooth hash-scroll offset similar to index
+      try { document.getElementById('year').textContent = new Date().getFullYear(); } catch(e){}
+      (function(){
+        const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{
+          a.addEventListener('click', (e)=>{
+            const id = a.getAttribute('href');
+            if (!id || id === '#') return;
+            const el = document.querySelector(id);
+            if (!el) return;
+            e.preventDefault();
+            const y = el.getBoundingClientRect().top + window.pageYOffset - (headerHeight + 12);
+            window.scrollTo({ top: y, behavior: 'smooth' });
+            history.replaceState(null, '', id);
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

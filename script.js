@@ -56,9 +56,9 @@
       blurb: "Developing a VR gaming experience using Unity.",
       cover: "project-2.jpg",
       tags: ["Prototype", "Scripting", "Idea Validation"],
-      link: "https://funky-ladybug-d69.notion.site/Physical-Interface-Project-3_Meta-Quest-Unity-Game-Development-1b29554284ca809f8dc8c20a54ef267e?source=copy_link",
-      // embed the Notion page in the modal for the second project
-      embed: "https://funky-ladybug-d69.notion.site/ebd/1b29554284ca809f8dc8c20a54ef267e"
+      // open the local info page when "Open" is clicked
+      link: "p2infro.html",
+      // keep embed (optional) for card-level embed or modal
     },
     {
       id: "p3",
@@ -66,9 +66,7 @@
       blurb: "Redesigning the app for identified problems to improve user experience.",
       cover: "project-3.jpg",
       tags: ["Research", "Surveys", "Interviews"],
-      // embed the Miro live-embed for the third card (renders inside the card)
       embed: "https://miro.com/app/live-embed/uXjVNiRwTBM=/?embedMode=view_only_without_ui&moveToViewport=14694,-7303,25901,12908&embedId=881170539998",
-      // keep an external link as fallback
       link: "https://miro.com/app/board/uXjVNiRwTBM=/?share_link_id=257455684358"
     }
   ];
@@ -82,26 +80,63 @@
     for (const p of workData) {
       const node = tpl.content.firstElementChild.cloneNode(true);
       node.dataset.id = p.id;
-      const img = node.querySelector("img");
-      img.src = p.cover;
-      img.alt = `${p.title} cover`;
-      node.querySelector("h3").textContent = p.title;
-      node.querySelector("p").textContent = p.blurb;
 
-      const tagsBox = node.querySelector("div.flex.flex-wrap");
-      for (const t of p.tags) {
-        const chip = document.createElement("span");
-        chip.className = "px-2 py-1 rounded-lg border border-white/10";
-        chip.textContent = t;
-        tagsBox.appendChild(chip);
+      const img = node.querySelector("img");
+      if (img) {
+        img.src = p.cover;
+        img.alt = `${p.title} cover`;
       }
 
-      const openEl = node.querySelector("[data-action='open']");
-      // why: make whole card clickable + keyboard accessible
-      openEl.addEventListener("click", (e) => { e.preventDefault(); openModal(p, node); });
-      openEl.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openModal(p, node); }
-      });
+      const titleEl = node.querySelector("h3");
+      if (titleEl) titleEl.textContent = p.title;
+
+      const blurbEl = node.querySelector("p");
+      if (blurbEl) blurbEl.textContent = p.blurb;
+
+      // tags
+      const tagsBox = node.querySelector("div.flex.flex-wrap");
+      if (tagsBox) {
+        tagsBox.innerHTML = "";
+        for (const t of p.tags || []) {
+          const chip = document.createElement("span");
+          chip.className = "px-2 py-1 rounded-lg border border-white/10 text-xs";
+          chip.textContent = t;
+          tagsBox.appendChild(chip);
+        }
+      }
+
+      // ensure "Open" button/anchor opens the modal (card-level open always opens modal)
+      const openEl = node.querySelector("a.viewBtn, a[data-action='open'], button[data-action='open'], a.open, .viewBtn");
+      if (openEl) {
+        // Force the anchor to not navigate on click — modal will handle navigation.
+        if (openEl.tagName.toLowerCase() === "a") {
+          openEl.setAttribute("href", "#");
+          openEl.setAttribute("role", "button");
+        }
+
+        const openHandler = (ev) => {
+          // allow middle-click/cmd-click to open link in new tab only if user explicitly requests (let it fall through)
+          if (ev.type === "click" && (ev.ctrlKey || ev.metaKey || ev.button === 1)) return;
+          ev.preventDefault();
+          if (typeof openModal === "function") openModal(p, node);
+        };
+
+        openEl.addEventListener("click", openHandler);
+        openEl.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openHandler(e);
+          }
+        });
+      }
+
+      // details / modal trigger (optional other button)
+      const detailsBtn = node.querySelector(".detailsBtn");
+      if (detailsBtn) {
+        detailsBtn.addEventListener("click", () => {
+          if (typeof openModal === "function") openModal(p, node);
+        });
+      }
 
       grid.appendChild(node);
     }
@@ -125,38 +160,48 @@
   function openModal(project, cardEl) {
     if (!modal) return;
     activeCard = cardEl;
-    activeCard.classList.add("ring-2","ring-brand/60"); // why: reflect activation on the grid
+    activeCard?.classList?.add("ring-2","ring-brand/60");
     lastFocused = document.activeElement;
 
-    mCover.src = project.cover;
-    mCover.alt = `${project.title} cover`;
-    mTitle.textContent = project.title;
-    mDesc.textContent = project.blurb;
+    mCover.src = project.cover || "";
+    mCover.alt = `${project.title} cover` || "";
+    mTitle.textContent = project.title || "";
+    mDesc.textContent = project.blurb || "";
     mTags.innerHTML = "";
-    for (const t of project.tags) {
+    for (const t of project.tags || []) {
       const chip = document.createElement("span");
       chip.className = "px-2 py-1 rounded-lg border border-white/10 text-xs";
       chip.textContent = t;
       mTags.appendChild(chip);
     }
-    mLink.href = project.link || "#";
 
-    // Only show/embed the Miro iframe for projects that provide an `embed` property.
+    // Set the modal "Open Project" link target to project.link (allows p2 -> p2infro.html)
+    if (mLink) {
+      mLink.href = project.link || "#";
+      // open local pages in same tab, external hosts in new tab
+      try {
+        const isExternal = project.link && /^(https?:)?\/\//.test(project.link);
+        mLink.target = isExternal ? "_blank" : "_self";
+        mLink.rel = isExternal ? "noopener noreferrer" : "";
+      } catch (e) {
+        mLink.target = "_self";
+        mLink.rel = "";
+      }
+    }
+
+    // Embed handling (unchanged)
     if (project.embed && wmEmbed && wmIframe) {
       wmEmbed.classList.remove("hidden");
       wmIframe.src = project.embed;
     } else if (wmEmbed && wmIframe) {
       wmEmbed.classList.add("hidden");
-      // clear src to stop any previous embed from continuing to load/play
       wmIframe.src = "";
     }
 
     modal.classList.remove("hidden");
     document.body.classList.add("overflow-hidden");
-    // focus first meaningful control
-    mLink.focus();
+    mLink?.focus();
 
-    // why: trap focus inside modal for a11y
     modal.addEventListener("keydown", trapFocus);
     window.addEventListener("keydown", escClose);
   }
