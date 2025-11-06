@@ -29,6 +29,15 @@
       :root { --card-bg: 24,24,27; }
       .soft-card { background: rgba(var(--card-bg), 1); border: 1px solid rgba(255,255,255,.08); }
       .halo { box-shadow: 0 30px 90px rgba(91, 255, 173, 0.35); }
+      /* Highlight pill for emphasis (used for tools list) */
+      .highlight {
+        display: inline-block;
+        background: linear-gradient(90deg, rgba(91,130,255,0.12), rgba(78,225,201,0.04));
+        padding: 0.18rem 0.5rem;
+        border-radius: 999px;
+        border: 1px solid rgba(91,130,255,0.08);
+        color: inherit;
+      }
       @media (prefers-reduced-motion: reduce) { *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important} }
     </style>
   </head>
@@ -146,7 +155,7 @@
               <span class="px-3 py-1 rounded-xl border border-white/10">Service Design</span>
             </div>
             <h4 class="mt-8 font-bold">Tools I Use</h4>
-            <p class="mt-2 text-sm text-zinc-400">Figma, Adobe Illustrator, Adobe Photoshop, Adobe XD, Miro, Notion, Canva, Google Analytics</p>
+            <p class="mt-2 text-sm text-zinc-400"><span class="highlight">Figma, Adobe Illustrator, Adobe Photoshop, Adobe XD, Miro, Notion, Canva</span></p>
           </div>
         </div>
 
@@ -250,7 +259,7 @@
           <p id="wmDesc" class="mt-2 text-sm text-zinc-300"></p>
           <div id="wmTags" class="mt-3 flex flex-wrap gap-2 text-xs"></div>
           <div class="mt-5 flex flex-wrap gap-3">
-            <a id="wmLink" target="_blank" rel="noopener" class="rounded-xl bg-brand px-4 py-2.5 font-semibold text-white hover:bg-brand-600">Open Project</a>
+            <a id="wmLink" target="_blank" rel="noopener" class="rounded-xl bg-brand px-4 py-2.5 font-semibold text-white hover:bg-brand-600" aria-label="View Case Study">View Case Study</a>
             <button id="wmClose" class="rounded-xl border border-white/10 px-4 py-2.5">Close</button>
           </div>
         </div>

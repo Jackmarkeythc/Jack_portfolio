@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Jacksgoods Portfolio — Design</title>
+    <meta name="description" content="Case study: Jacksgoods Portfolio & Select Work redesign — Haiming 'Jack' Wang." />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      html, body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif; }
+      :root {
+        --bg: #0b0b10;
+        --card-bg: 24,24,27;
+        --text: #e6edf3;
+        --muted: #9aa4b2;
+        --brand: #5B82FF;
+        --accent: #4EE1C9;
+        --line: rgba(255,255,255,0.06);
+        --radius: 14px;
+        --container: 1100px;
+        --measure: 66ch;
+      }
+      body { background: var(--bg); color: var(--text); margin:0; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+      .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+      header{ position:sticky; top:0; z-index:40; backdrop-filter: blur(6px); background: rgba(11,11,16,0.55); border-bottom:1px solid rgba(255,255,255,0.04); }
+      .header-inner{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 20px; }
+      a.logo{ color: #fff; text-decoration:none; font-weight:600; }
+      .hero{ padding:56px 0 20px; text-align:center; }
+      .eyebrow{ color:var(--muted); text-transform:uppercase; font-size:12px; letter-spacing:.08em; margin-bottom:10px; }
+      .title{ font-size:clamp(28px,6vw,44px); font-weight:800; margin:0 0 10px; color:var(--text); }
+      .subtitle{ color:var(--muted); max-width:900px; margin:0 auto 18px; }
+
+      .btn{ display:inline-block; padding:10px 16px; border-radius:999px; text-decoration:none; font-weight:600; border:1px solid var(--line); }
+      .btn.primary{ background:var(--brand); color:#fff; border-color:var(--brand); }
+      .ctaRow{ display:flex; gap:12px; justify-content:center; margin-top:18px; flex-wrap:wrap; }
+
+      .soft-card{ background: rgba(var(--card-bg),1); border:1px solid var(--line); border-radius:12px; }
+      .embedWrap{ margin:28px 0 60px; overflow:hidden; border-radius:12px; border:1px solid var(--line); box-shadow:0 12px 40px rgba(2,9,23,0.5); }
+
+      footer{ border-top:1px solid rgba(255,255,255,0.04); padding:18px 0; color:var(--muted); text-align:center; }
+
+      /* Case study layout */
+      .case{ margin:24px 0; display:grid; grid-template-columns:1fr; gap:20px; }
+      @media(min-width:900px){ .case{ grid-template-columns:380px 1fr; align-items:start; } }
+      .panel{ padding:20px; border-radius:12px; background:linear-gradient(180deg, rgba(var(--card-bg),0.98), rgba(var(--card-bg),0.95)); border:1px solid var(--line); }
+      .meta-item{ font-size:14px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; margin-bottom:8px; }
+      .meta-item b{ color:var(--text); font-weight:600; }
+      .divider{ height:1px; background:var(--line); margin:16px 0; border-radius:2px; }
+      .kpi{ display:flex; gap:12px; flex-wrap:wrap; }
+      .kpi .item{ background: rgba(255,255,255,0.02); padding:10px; border-radius:10px; text-align:center; min-width:110px; }
+      .kpi .num{ font-weight:800; font-size:1.05rem; color:var(--text); display:block; }
+      .kpi .lbl{ font-size:12px; color:var(--muted); margin-top:6px; line-height:1.1; }
+
+      .callout{ border-left:4px solid var(--brand); padding:14px 16px; background:linear-gradient(90deg, rgba(91,130,255,0.03), transparent); border-radius:8px; color:var(--text); }
+
+      .prose{ color:var(--muted); max-width:var(--measure); line-height:1.65; font-size:15px; }
+      .prose h3, .prose h4{ color:var(--text); margin-top:0; margin-bottom:8px; }
+      .prose ul{ margin:8px 0 8px 1.1rem; }
+      .section-title{ display:flex; align-items:center; gap:12px; margin:0 0 8px; }
+      .section-title .dot{ width:10px; height:10px; border-radius:99px; background:var(--brand); box-shadow:0 6px 20px rgba(91,130,255,0.12); }
+
+      pre{ background:rgba(0,0,0,0.25); padding:12px; border-radius:8px; overflow:auto; color:#e6edf3; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace; font-size:13px; }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="container header-inner">
+        <a href="index.html" class="logo">← Back to Portfolio</a>
+        <div class="text-sm" style="color:var(--muted)">Select Work · Case Study</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <p class="eyebrow">Case Study</p>
+          <h1 class="title">Jacksgoods Portfolio Design & Marketing Promotion</h1>
+          <p class="subtitle">Designing a clearer, faster, and more accessible portfolio experience — improved card interactions, consistent case pages, and a modular system for future shop demos.</p>
+          <div class="ctaRow">
+            <a href="index.html" class="btn primary">← Back to Portfolio</a>
+            <a href="#case" class="btn">Jump to Case Study</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Case study content (styled like p2infro.html) -->
+      <section id="case" class="container">
+        <div class="case">
+          <aside class="panel">
+            <div>
+              <div class="section-title"><span class="dot" aria-hidden="true"></span><strong style="color:var(--text)">Case Study</strong></div>
+
+              <div class="meta-item"><span>Author</span><b>Haiming Wang Jack</b></div>
+              <div class="meta-item"><span>Role</span><b>Solo — UX/UI, Front‑end dev, Content</b></div>
+              <div class="meta-item"><span>Timeframe</span><b>Aug–Nov 2025</b></div>
+              <div class="meta-item"><span>Tools</span><b>Milanote · Figma · Illustrator · Photoshop · HTML/CSS/JS · Bootstrap</b></div>
+
+              <div class="divider" role="separator" aria-hidden="true"></div>
+
+              <div class="kpi" aria-hidden="true">
+                <div class="item"><span class="num">≤2</span><span class="lbl">Clicks to content</span></div>
+                <div class="item"><span class="num">AA</span><span class="lbl">Contrast target</span></div>
+                <div class="item"><span class="num">90+</span><span class="lbl">Lighthouse goal</span></div>
+              </div>
+
+              <div class="divider" role="separator" aria-hidden="true"></div>
+
+              <div class="callout" aria-live="polite">
+                <strong>Outcome</strong>
+                <p style="margin:8px 0 0;color:var(--muted)">Redesigned Select Work grid with accessible, fully clickable cards and standardized case pages — faster paths to content and improved discoverability.</p>
+              </div>
+            </div>
+          </aside>
+
+          <div class="panel">
+            <article class="prose">
+              <h3>Executive Summary</h3>
+              <p>My work spans course projects (HCI/UX, data‑viz, AR/MR) and a guitar‑culture e‑commerce concept. Reviewers found it hard to navigate and grasp the story quickly. I redesigned the portfolio around an accessible “Select Work” grid of fully clickable, keyboard‑navigable cards that open focused project details (modal or page). I preserved my original typographic voice while tightening contrast, spacing, and theme tokens for light/dark. The result is a cohesive experience that communicates who I am in seconds and lets recruiters deep‑dive fast.</p>
+
+              <h4>Outcomes (early signals)</h4>
+              <ul>
+                <li>Clear entry point (“Select Work”) and consistent case‑study structure</li>
+                <li>Faster path‑to‑content (≤2 clicks from landing to any project)</li>
+                <li>Accessible interactions (visible focus, ARIA labels, Escape to close modals)</li>
+                <li>A modular foundation to add a guitar shop demo without fragmenting the brand</li>
+              </ul>
+
+              <h4>Background & Problem</h4>
+              <p>Fragmented story: Projects lived across classes and experiments, with uneven depth and labels.</p>
+              <p>Interaction gap: The “Select Work” area looked like cards but wasn’t fully clickable/activatable; keyboard support was inconsistent.</p>
+              <p>Brand vs readability: I prefer keeping original fonts, but some pages had low contrast and tight line‑height, especially in dark mode.</p>
+
+              <h4>Objectives & Success Metrics</h4>
+              <ul>
+                <li><strong>Clarity in 10s:</strong> Communicate role and value on the hero + nav.</li>
+                <li><strong>Findability:</strong> Reach a relevant project in ≤2 clicks.</li>
+                <li><strong>Consistency:</strong> Unify case‑study sections (Context → Problem → Process → Solution → Impact).</li>
+                <li><strong>Accessibility:</strong> WCAG 2.1 AA color contrast; keyboard‑navigable cards and modals.</li>
+                <li><strong>Performance:</strong> Lighthouse ≥90 across Performance/Accessibility/Best Practices/SEO.</li>
+                <li><strong>Engagement:</strong> Increase average time‑on‑portfolio and % of visitors who view ≥2 projects.</li>
+              </ul>
+
+              <h4>Research & Inputs</h4>
+              <p>Milanote synthesis: I mapped sections, assets, and the relationship between portfolio and guitar shop concept. Light interviews and quick tests informed the need for predictable card affordances and clear visual rhythm.</p>
+
+              <h4>Design System & Interaction</h4>
+              <p>Design tokens, accessible focus states, and a small component grammar (Card, Tag, Button, Modal) ensure consistency. Cards are full‑card clickable, keyboard‑activatable (Enter/Space), and show visible focus rings. Modals trap focus and return it to the trigger on close.</p>
+
+              <h4>Implementation & Process</h4>
+              <p>Stack: HTML/CSS/JS with lightweight components; Bootstrap semantics where useful. Process: Milanote → Figma → Build → Test → Iterate. GA4 events instrumented for card_open, modal_view, and view_case_study.</p>
+
+              <h4>Solution Highlights</h4>
+              <ul>
+                <li>Predictable Select Work grid with accessible, fully clickable cards.</li>
+                <li>Standardized case‑study page structure for scannability and deep reads.</li>
+                <li>Light/Dark tokens audited for hover/focus/active states.</li>
+                <li>Shop demo inherits the same component grammar for cohesion.</li>
+              </ul>
+
+              <h4>Evidence & Next Steps</h4>
+              <p>Collected before/after screenshots, Lighthouse & AXE reports, and GA4 event samples. Next: expand the shop demo, add filters, and continue collecting quantitative signals.</p>
+
+              <h4>What I Learned</h4>
+              <p>Consistency reduces cognitive load; accessible interactions matter; preserving fonts works with tuned rhythm and contrast; theme toggles require state audits.</p>
+
+              <h4>Deliverables</h4>
+              <p>Case pages, modal interactions, screenshots, Lighthouse/AXE reports, and GA4 instrumentation. Ready to drop into the portfolio and link from the Select Work grid.</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- Optionally keep an embed area similar to p2infro -->
+        <div class="embedWrap soft-card" style="margin-top:18px;">
+          <iframe
+            src="https://app.milanote.com/1TPAMR1dX0MM6q?p=lsxMKnZQ6q5"
+            title="JacksGoods — Milanote Board"
+            allow="clipboard-read; clipboard-write; fullscreen"
+            sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
+            style="width:100%;height:75vh;border:0;display:block;"
+          ></iframe>
+        </div>
+      </section>
+
+      <footer class="container">
+        © <span id="year"></span> Haiming Wang — Crafted with care
+      </footer>
+    </main>
+
+    <script>
+      try { document.getElementById('year').textContent = new Date().getFullYear(); } catch(e){}
+      (function(){
+        const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{
+          a.addEventListener('click', (e)=>{
+            const id = a.getAttribute('href');
+            if (!id || id === '#') return;
+            const el = document.querySelector(id);
+            if (!el) return;
+            e.preventDefault();
+            const y = el.getBoundingClientRect().top + window.pageYOffset - (headerHeight + 12);
+            window.scrollTo({ top: y, behavior: 'smooth' });
+            history.replaceState(null, '', id);
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
